@@ -194,6 +194,7 @@ jobs:
             ghcr.io/githubdevopsdemo/githubteamuser2/shopizer:latest
           imagepullsecrets: |
             k8s-secret
+  
             
  #DAST:
     #name: Perform DAST scan
