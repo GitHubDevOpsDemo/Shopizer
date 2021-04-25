@@ -19,7 +19,7 @@ jobs:
          run: |
            curl \
              -X POST \
-             https://api.github.com/repos/githubteamsuser2/cima-integration-test/dispatches \
+             https://api.github.com/repos/githubteamsuser2/Shopizer/dispatches \
              -H "Accept: application/vnd.github.v3+json" \
              -u ${{ secrets.ACCESS_TOKEN }} \
              --data '{"event_type": "invoke_test", "client_payload": { "repository": "'"https://github.com/GitHubDevOpsDemo/cima-integration-test"'" }}'
