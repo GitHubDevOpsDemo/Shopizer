@@ -33,8 +33,8 @@ jobs:
        uses: codecov/codecov-action@v1
        with:
         token: ${{ secrets.CODECOVE_TOKEN }}
-        files: jacoco.xml
-        directory: ${GITHUB_WORKSPACE}/sm-shop/target/site/jacoco/
+        files: ./sm-shop/target/site/jacoco/jacoco.xml
+        #directory: ${GITHUB_WORKSPACE}/sm-shop/target/site/jacoco/
         flags: unittests
         #env_vars: OS,PYTHON
         name: codecov-umbrella
