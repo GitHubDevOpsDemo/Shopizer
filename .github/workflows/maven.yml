@@ -78,6 +78,7 @@ jobs:
         #cloud-id: '${{ secrets.CLOUD_ID }}'
         client-id: '${{ secrets.JIRA_GH_CLIENT_ID }}'
         client-secret: '${{ secrets.JIRA_GH_CLIENT_SECRET }}'
+        cloud-instance-base-url: "https://bluice.atlassian.net/"
         pipeline-id: '${{ github.repository }} ${{ github.workflow }}'
         build-number: ${{ github.run_number }}
         build-display-name: 'Workflow: ${{ github.workflow }} (#${{ github.run_number }})'
