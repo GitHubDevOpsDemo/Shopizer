@@ -10,7 +10,6 @@ on:
     branches: [ master ]
   repository_dispatch:
     types: [invoke_build_deploy]
-  deployment: development
 
 
 
@@ -208,6 +207,7 @@ jobs:
   Deploy:
      name: Deploy shopizer image to AKS cluster dev namespace
      runs-on: ubuntu-latest
+     environment: development
      needs: [secret-scan, analyze, analyze_dockerfile, build, publish-job, containerize_n_push_to_registry, scan-image] #, Provision-env]
      steps:
        - name: Check out the repo
