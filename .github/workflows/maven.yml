@@ -5,13 +5,33 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master ]
+    branches: 
+      - '!master'
   pull_request:
     branches: [ master ]
   repository_dispatch:
     types: [invoke_build_deploy]
 
+
+
 jobs:
+
+  transition-issue:
+    name: Transition Issue
+    runs-on: ubuntu-latest
+    steps:
+    - name: Login
+      uses: atlassian/gajira-login@v3
+      env:
+        JIRA_BASE_URL: "https://bluice.atlassian.net/" #${{ secrets.JIRA_BASE_URL }}
+        JIRA_USER_EMAIL: "sen.arindam@pwc.com" #${{ secrets.JIRA_USER_EMAIL }}
+        JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}  
+    - name: Transition issue
+      uses: atlassian/gajira-transition@v3
+      with:
+        issue: BLUIC-4
+        transition: "In progress"
+
   secret-scan:
     name: Repo Secret Scan 
     #runs-on: [self-hosted, 'Windows', 'X64']
