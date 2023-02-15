@@ -10,6 +10,9 @@ on:
     branches: [ master ]
   repository_dispatch:
     types: [invoke_build_deploy]
+env:
+  GITHUB_RUN_ID: ${{secrets.GITHUB_RUN_ID}}
+  GITHUB_RUN_NUMBER: ${{secrets.GITHUB_RUN_NUMBER}}
 
 
 
@@ -41,6 +44,17 @@ jobs:
        run: |
          set commit-msg: ${{ github.event.head_commit.message }}
          echo $commit-msg
+     - name: Parse Jira Keys from Commit
+       id: jira_keys
+       if: always()
+       uses: HighwayThree/jira-extract-issue-keys@master
+       with:
+         #is-pull-request: ${{ github.event_name == 'pull_request' }}
+         parse-all-commits: ${{ github.event_name == 'push' }}
+     - name: echo  
+       run: |
+         echo "Commit message: ${{ steps.jira_keys }}
+        
 
 #  secret-scan:
 #    name: Repo Secret Scan 
