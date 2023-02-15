@@ -44,6 +44,24 @@ jobs:
        run: |
          set commit-msg: ${{ github.event.head_commit.message }}
          echo $commit-msg
+     - name: curlcmd
+       shell : bash
+       run: |
+         curl --request POST \
+           --url 'https://bluice.atlassian.net/rest/api/2/issue/BLUIC-5/comment' \
+           --user 'sen.arindam@pwc.com:ATATT3xFfGF0LOvpNbZ-1UHdKEupjfrMQLQtCX3UyZKQYWvgs5_nKa4GD4VPehGNWr4lVohowcqIV27rJFog-ShPw9Y5cnOx_sFy_arMKll0cEQ9rJG11wg5OTHHCFHlYTShRrUQJP7n3pvlcK84ARgGl-4-c3hymLndvQyMuyjEvyu3Gt0BsMg=2D0C9C92' \
+           --header 'Accept: application/json' \
+           --header 'Content-Type: application/json' \
+           --data '{
+           "Status": [
+             pipeline-id: '${{ github.repository }} ${{ github.workflow }}',
+            build-number: ${{ github.run_number }},
+            build-display-name: 'Workflow: ${{ github.workflow }} (#${{ github.run_number }})',
+           build-state: "${{ env.BUILD_STATE }}",
+           build-url: '${{github.event.repository.url}}/actions/runs/${{github.run_id}}',
+           update-sequence-number: '${{ github.run_id }}'
+          ]
+         }'
      - name: Parse Jira Keys from Commit
        id: jira_keys
        if: always()
