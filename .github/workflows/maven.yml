@@ -52,9 +52,9 @@ jobs:
          #is-pull-request: ${{ github.event_name == 'pull_request' }}
          parse-all-commits: ${{ github.event_name == 'push' }}
          commit-message: "BLUIC-5 <message>"
-     - name: echo  
-       run: |
-         echo "Commit message: ${{ steps.jira_keys }}
+#     - name: echo  
+#       run: |
+#         echo "Commit message: ${{ steps.jira_keys }}
      - name: Push Build Info to Jira
        if: steps.jira_keys.outputs.jira-keys != ''
        id: push_build_info_to_jira
