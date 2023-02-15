@@ -103,7 +103,7 @@ jobs:
        with:
          #is-pull-request: ${{ github.event_name == 'pull_request' }}
          parse-all-commits: ${{ github.event_name == 'push' }}
-         commit-message: "BLUIC-5 <message>"
+         commit-message: 'BLUIC-5 <message>'
 #     - name: echo  
 #       run: |
 #         echo "Commit message: ${{ steps.jira_keys }}
