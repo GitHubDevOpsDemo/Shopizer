@@ -2,6 +2,10 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: Shopizer
+  description: Shopizer application
+  tags:
+    - java
+    - .NET
   annotations:
     github.com/project-slug: GitHubDevOpsDemo/Shopizer
 spec:
