@@ -5,6 +5,6 @@ metadata:
   annotations:
     github.com/project-slug: GitHubDevOpsDemo/Shopizer
 spec:
-  type: other
-  lifecycle: unknown
-  owner: githubteamsuser1
+  type: Service
+  lifecycle: development
+  owner: DevOpsTeam
