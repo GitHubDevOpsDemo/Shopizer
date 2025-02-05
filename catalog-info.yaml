@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Shopizer
+  annotations:
+    github.com/project-slug: GitHubDevOpsDemo/Shopizer
+spec:
+  type: other
+  lifecycle: unknown
+  owner: githubteamsuser1
